@@ -1,0 +1,5 @@
+webob
+parse
+jinja2
+whitenoise
+gunicorn

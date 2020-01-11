@@ -1,0 +1,8 @@
+README.md
+setup.py
+regiuss/__init__.py
+regiuss.egg-info/PKG-INFO
+regiuss.egg-info/SOURCES.txt
+regiuss.egg-info/dependency_links.txt
+regiuss.egg-info/requires.txt
+regiuss.egg-info/top_level.txt
