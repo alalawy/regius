@@ -86,6 +86,10 @@ class Regius:
         }
         RegiusRun(self.wsgi_app, options).run()
 
+    def redirect(self, req, resp, url):
+        host = req.host_url
+        resp.text = "<script> window.location.replace('"+host+url+"'); </script>"
+
 class RegiusRun(gunicorn.app.base.BaseApplication):
     def __init__(self, app, options=None):
         self.options = options or {}
