@@ -7,6 +7,9 @@ import os
 from jinja2 import Environment, FileSystemLoader
 from whitenoise import WhiteNoise
 import gunicorn.app.base
+from sqlalchemy import create_engine, Column, String, Integer, MetaData
+from sqlalchemy.orm import sessionmaker
+from sqlalchemy.ext.declarative import declarative_base
 
 class Regius:
 
@@ -83,12 +86,14 @@ class Regius:
     def serve(self, address, port):
         options = {
             'bind': '%s:%s' % (address, port),
+            'debug': True,
         }
         RegiusRun(self.wsgi_app, options).run()
 
     def redirect(self, req, resp, url):
         host = req.host_url
         resp.text = "<script> window.location.replace('"+host+url+"'); </script>"
+
 
 class RegiusRun(gunicorn.app.base.BaseApplication):
     def __init__(self, app, options=None):
@@ -104,3 +109,4 @@ class RegiusRun(gunicorn.app.base.BaseApplication):
 
     def load(self):
         return self.application
+

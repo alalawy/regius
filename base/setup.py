@@ -13,7 +13,7 @@ setuptools.setup(
     long_description_content_type="text/markdown",
     url="https://github.com/alalawy/regius",
     packages=setuptools.find_packages(),
-    install_requires=['webob','parse','jinja2','whitenoise','gunicorn'],
+    install_requires=['webob','parse','jinja2','whitenoise','gunicorn','sqlalchemy','pymysql'],
     classifiers=[
         "Programming Language :: Python :: 3",
         "License :: OSI Approved :: MIT License",
